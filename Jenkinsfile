@@ -86,7 +86,7 @@ pipeline {
             // send job complete email on success
             emailext (
                 subject: "DEPLOYMENT COMPLETE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                body: """SUCCESSFUL: Jenkins Job -- ${env.JOB_NAME} [${env.BUILD_NUMBER}]\n\nCheck the console output at https://jenkins.pilotcorp.net:8443/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/console""",
+                body: """SUCCESSFUL: Jenkins Job -- ${env.JOB_NAME} [${env.BUILD_NUMBER}]\n\nCheck the console output at https://18.216.131.49:9999/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/console""",
                 recipientProviders: [requestor()]
             )
         }
@@ -94,7 +94,7 @@ pipeline {
             // send job failure email on failure
             emailext (
                 subject: "DEPLOYMENT FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                body: """BUILD MARKED AS FAILURE: Jenkins Job -- ${env.JOB_NAME} [${env.BUILD_NUMBER}]\n\nCheck the console output at https://jenkins.pilotcorp.net:8443/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/console""",
+                body: """BUILD MARKED AS FAILURE: Jenkins Job -- ${env.JOB_NAME} [${env.BUILD_NUMBER}]\n\nCheck the console output at https://18.216.131.49:9999/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/console""",
                 recipientProviders: [requestor()]
            )
         }
