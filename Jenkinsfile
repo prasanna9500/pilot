@@ -22,13 +22,13 @@ pipeline {
         }
         stage('Checkout Git Branch') {
             steps {
-                               checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'svcgithubjenkins', url: '${repo}']]])
+                               checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: '${repo}']]])
                                }
         }
         // SQ for code quality, MSBuild/dotnet debug build to verify solution is ready for deployment.
         stage ('DotNet Core Build (Linux)') {   
                when {
-                       expression { technology == 'dotnet core' && agent == 'linux'}
+                       expression { technology == 'dotnetcore' && agent == 'linux'}
                }              
                agent { label 'linux' }
                steps {
