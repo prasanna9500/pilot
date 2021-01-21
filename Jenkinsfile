@@ -38,7 +38,7 @@ pipeline {
         }
         stage ('DotNet Core Build (Windows)') {   
                when {
-                       expression { technology == 'dotnet core' && agent == 'linux'}
+                       expression { technology == 'dotnetcore' && agent == 'linux'}
                }              
                agent { label 'linux' }
                steps {
