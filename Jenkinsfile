@@ -36,23 +36,14 @@ pipeline {
                        sh 'dotnet publish -c Release -r win-x64'
                }
         }
-        stage ('DotNet Core Build (Windows)') {   
-               when {
-                       expression { technology == 'dotnetcore' && agent == 'linux'}
-               }              
-               agent { label 'linux' }
-               steps {
-                       bat 'dotnet clean'
-                       bat 'dotnet publish -c Release -r win-x64'
-               }
-        }
+       
         stage ('Java Build (linux)') {   
                when {
                        expression { technology == 'java' && agent == 'linux'}
                }              
                agent { label 'linux' }
                steps {
-                       bat 'mvn clean package'
+                       sh 'mvn clean package'
                        
                }
         }
