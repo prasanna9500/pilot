@@ -3,7 +3,7 @@ pipeline {
 
     // creating environment variables to make jenkinsfile declarative
     environment {
-        ARTIFACTORY_CREDS = credentials('svcartifactorycicd')
+        //ARTIFACTORY_CREDS = credentials('svcartifactorycicd')
                //def Application_Name = ${package}
                def Artifactory_Bucket = "PFJ-NuGet-Packages"
                def Artifactory_File = ""
