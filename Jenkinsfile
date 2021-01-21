@@ -43,6 +43,7 @@ pipeline {
                }              
                agent { label 'linux' }
                steps {
+                  sh 'cd spring-mvc-quickstart-archetype'
                        sh 'mvn clean package'
                        
                }
