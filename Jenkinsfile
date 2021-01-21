@@ -46,11 +46,11 @@ pipeline {
                        bat 'dotnet publish -c Release -r win-x64'
                }
         }
-        stage ('Java Build (Windows)') {   
+        stage ('Java Build (linux)') {   
                when {
-                       expression { technology == 'java' && agent == 'windows'}
+                       expression { technology == 'java' && agent == 'linux'}
                }              
-               agent { label 'windows' }
+               agent { label 'linux' }
                steps {
                        bat 'mvn clean package'
                        
