@@ -17,7 +17,7 @@ pipeline {
                 // output env variables
                 
                 echo "GITHUB_BRANCH: ${branch}"
-                
+                unstable("Checking the metrics")
             }
         }
         stage('Checkout Git Branch') {
